@@ -1,0 +1,11 @@
+{% extends 'baseb.html' %}
+{% block body %}
+<h1>Delete File</h1>
+
+<p>Are you sure you want to delete the file: {{ txt.title }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes, delete.">
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'baseb.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+    <h1 class="text-center p-3">Cluster Morph</h1>
+    <div class="pb-5">This application seeks to cluster curves (mostly time series) based on morphological characteristics of each curve, the code used is an adaptation of the code made in the initiation project "Computer Program for the Identification of Celestial Objects through the Analysis of Light Curves" made at the Federal University of Latin-American Integration (UNILA) in 2017 ( <a href="#"><img src="{% static  'gitlogo.PNG' %}"  href="#" width="15" height="15"> github repository</a>).</div>
+</div>
+
+<img src="{% static  'background.PNG' %}" alt="" class="img-fluid m-3" height="230" width="360" style="float: left;">
+<div>
+    <h3>How it works</h3>
+    <div>
+    <p>The identification of motifs (repeating patterns) is generally determined by a distance function (D) and the setting of an acceptance threshold (radius 'r'), a concept similar to the one used by this application. Thus, if radius is a positive real acceptance threshold, a time series with a sequence C1, and another sequence C2, let D be the distance between two objects, D(C1, C2)<=rD(C1, C2)<= r , then the C1 sequence is assumed to be similar to the C2 sequence. In this application, the Euclidean distance was used to group the requested sequences.</p>
+    <p>As data from different series can be compared, all curves and sequences analyzed are normalized to minimize problems arising from the use of units and different dispersions between variables. In order to know which sequences are repeated in the case of curves with different amounts of points, whether C1 is the largest curve and C2 the smallest, the Euclidean distance is taken from a sliding window comparing C1 and C2 generating an array (eucli), where the i-th position marks the distance of the sequence in C2 compared to the window in the i-th position of C1, where only the minimum eucli value will be considered to determine the similarity of C1 and C2.</p>
+    <p>In grouping the selected sequences, so that each group represents a pattern, we seek to minimize the intra-group distances and maximize the extra-group distance. In order to know the quality of the cluster, we use the quality measure for clusters called Silhouette Coefficient, which is calculated as follows, the average of intra-group distances (a) and the distance between the sample and the closest group to which it does not belong (b). For each sample, the Silhouette Coefficient is given by (b-a)/max(a,b) with 1 being the best possible value for the quality and -1 the worst result.</p>
+    </div>
+</div>
+{% endblock %}

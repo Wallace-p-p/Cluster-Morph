@@ -1,0 +1,8 @@
+<h1>Results download test</h1>
+<ul>
+{% for article in object_list %}
+    <li> - {{ article.title }} , <a href="{% url 'coreapp:dl' article.title %}"] download="{{article.title}}-results">result of {{article.title}}</a>   </li>
+{% empty %}
+    <li>No results yet.</li>
+{% endfor %}
+</ul>

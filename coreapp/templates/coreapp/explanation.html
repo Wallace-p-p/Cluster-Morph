@@ -1,0 +1,144 @@
+{% extends 'baseb.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+    <h1>What it does?</h1>
+    <div>This app will group curves based on the morphology of each curve, using euclidean distance to define the similarity between curves. For example, lets say we would like to cluster the following curves based on their shapes: 
+        <li>
+            a = [
+                [0,1,2,1,0],
+                [0,100,200,100,0],
+                [5, 50, 95,50,5],
+                [0,1,1,1,2],
+                [0,10,10,10,20],
+                [0,10,12,9,22],
+                [40,20,10,20,40],
+                [4,2,1,2,4]
+            ]
+        </li>
+    </div>
+    <div>
+        The plot of each curve:
+    </div>
+    <div class="row my-2">
+        <div class="col">
+            <img src="{% static 'explanation\curve-0-plot.png' %}" class="img-fluid" alt="" width="400" height="400" />
+        </div>
+        <div class="col">
+            <img src="{% static 'explanation\curve-1-plot.png' %}" class="img-fluid" alt="" width="400" height="400" />
+        </div>
+        <div class="col">
+            <img src="{% static 'explanation\curve-2-plot.png' %}" class="img-fluid" alt="" width="400" height="400" />
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col">
+            <img src="{% static 'explanation\curve-3-plot.png' %}" class="img-fluid" alt="" width="400" height="400" />
+        </div>
+        <div class="col">
+            <img src="{% static 'explanation\curve-4-plot.png' %}" class="img-fluid" alt="" width="400" height="400" />
+        </div>
+        <div class="col">
+            <img src="{% static 'explanation\curve-5-plot.png' %}" class="img-fluid" alt="" width="400" height="400" /> 
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col">
+            <img src="{% static 'explanation\curve-6-plot.png' %}" class="img-fluid" alt="" width="400" height="400" />
+        </div>
+        <div class="col">
+            <img src="{% static 'explanation\curve-7-plot.png' %}" class="img-fluid" alt="" width="400" height="400" />
+        </div>
+        <div class="col">
+            <img src="{% static 'explanation\curve-all-plot.png' %}" class="img-fluid" alt="" width="400" height="400" />
+        </div>
+    </div>
+    <p>
+        Here some curves have similar formats, but different scales. The steps this aplication uses is as follows:
+        <li>
+            First - normalize each curve to deviation 1.
+        </li>
+        <li>
+            Second - make a table with euclidean distance coparring all curves.
+        </li>
+        <li>
+            Third - cluster the elements based on the calculated distance and from the 'radius' parameter (each curve inside this radius is considered a member of the same group).
+        </li>
+        <li>
+            Fourth - calculate quality measure of the cluster process for each value of 'radius' parameter. 
+        </li>
+        <li>
+            Obs: Results of all process will be saved and made available for download, use the python library pickle to create the file to be tested and to read the generated results files.
+        </li>
+    </p>
+    <p>
+        Then to use this app for clustering, we creat a .txt using the library 'pickle' with the pickle.dump comand, for example:
+    </p>
+    <p>
+        with open("explanation.txt", 'wb') as fp:
+            pickle.dump(a, fp)
+    </p>
+    <p>
+        So we can upload the .txt file, from this the app will normalize each curve and based on the euclidean distance and a parameter (radius) make the clusters, the app will use the values 0.1, 1.1, 2.1, 3.1 and 4.1, see on <a href="#">Git hub</a> for more details. As a result, .txt files readable with pickle.load will be created, the representants file contains the cuves that better represents each group, the groups file contais the formed groups for each radius, and the info file contains a list with 2 arrays, one with the radius and the other with the quality measure of the cluster process for the respective radius.
+    </p>
+    <p>
+        The results for the cluster of curves above will be, first the info file, where the closer the quality measure is to 1 better the cluster (relations of the euclidean distance inside each group and distance between groups):
+    </p>
+    <li>info = [[0.1, 1.1, 2.1, 3.1, 4.1], [0.9999999043882123, 0.982861835276241, 0.982861835276241, 0.982861835276241, 0.787612041112184]]</li>
+    <img src="{% static 'explanation\explanation-info-plot.png' %}" class="img-fluid my-2" alt="" width="400" height="400" />
+    <p>
+        And in this list (each cluster process put togheter) we can see the groups formed by the app, where each number is the curve ID:
+    </p>
+    <li>
+        clusters = [[0.1, [[0, 1, 2], [3, 4], [5], [6, 7]]], [1.1, [[0, 1, 2], [3, 4, 5], [6, 7]]], [2.1, [[0, 1, 2], [3, 4, 5], [6, 7]]], [3.1, [[0, 1, 2], [3, 4, 5], [6, 7]]], [4.1, [[0, 1, 2, 3, 4, 5], [6, 7]]]]
+    </li>
+    <p>
+        We can see that the first group, from the cluster with radius = 0.1, has the best relation of distances intra group (between members of the group) and distances extra groups (between groups).
+    </p>
+    <div>
+        Group 1:
+        <div class="row">
+            <div class="col">
+                <img src="{% static 'explanation\curve-0-plot.png' %}" class="img-fluid" alt="" width="300" height="300" />
+            </div>
+            <div class="col">
+                <img src="{% static 'explanation\curve-1-plot.png' %}" class="img-fluid" alt="" width="300" height="300" />
+            </div>
+            <div class="col">
+                <img src="{% static 'explanation\curve-2-plot.png' %}" class="img-fluid" alt="" width="300" height="300" />
+            </div>
+            <div class="col"></div>
+        </div>
+        Group 2:
+        <div class="row">
+            <div class="col">
+                <img src="{% static 'explanation\curve-3-plot.png' %}" class="img-fluid" alt="" width="300" height="300" />
+            </div>
+            <div class="col">
+                <img src="{% static 'explanation\curve-4-plot.png' %}" class="img-fluid" alt="" width="300" height="300" />
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        Group 3:
+        <div class="row">
+            <div class="col"><img src="{% static 'explanation\curve-5-plot.png' %}" class="img-fluid" alt="" width="300" height="300" /></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        
+        Group 4:
+        <div class="row">
+            <div class="col">
+                <img src="{% static 'explanation\curve-6-plot.png' %}" class="img-fluid" alt="" width="300" height="300" />
+            </div>
+            <div class="col">
+                <img src="{% static 'explanation\curve-7-plot.png' %}" class="img-fluid" alt="" width="300" height="300" />
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

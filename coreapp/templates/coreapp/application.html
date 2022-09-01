@@ -1,0 +1,61 @@
+{% extends 'baseb.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+    <h1>Cluster-Morph Application</h1>
+    <p>Here you can see and download the results of any uploaded data, if you wanna try your own data, just log in and upload a 'pickle.dump' .txt file of a list with only the curves arrays, without labels or anything else. </p>
+    <a href="{% url 'coreapp:create' %}"><button type="button" class="btn btn-secondary m-2">Upload Data</button></a>
+    
+    
+    {% if txt_list %}
+    <select class="form-select mx-2" aria-label="Default select example" id="select">
+        <option selected value="0">Choose the data</option>
+        {% for txt in txt_list %}
+            <option value="{{ txt.title }}">{{ txt.title }}</option>
+        {% endfor %}
+    </select> 
+    <button type="button" class="btn btn-primary m-2" id="show">Show Results</button>
+    {% for txt in txt_list %}
+        {% if txt.owner == user %}
+        <a href="{% url 'coreapp:delete' txt.id %}"><button type="button" class="btn btn-danger m-2">Delete: {{ txt.title }}</button></a>
+        {% endif %}
+    {% endfor %}
+    {% else %}
+        <p>There are no files in the database.</p>
+    {% endif %} 
+    
+</div>
+
+<div id="load" class="container" style="display: none;">
+    <div class="text-center">
+        <img src="{% static  'load.GIF' %}" width="200" height="200">
+    </div>
+</div>
+<div class="add1">
+
+</div>
+
+
+
+
+<script>
+$( "#show" ).click(function() {
+    console.log('one');
+    document.getElementById("load").style.display = "block";
+    var $valuenow = $("#select").val();
+    if( '0' == $valuenow){
+        return;
+    }
+    $( ".add1").empty();
+    $.get("{% url 'coreapp:add1' %}", { title: $valuenow})
+        .done(function(data){
+        document.getElementById("load").style.display = "none";
+        $( ".add1" ).append( data['add1'] );
+        });
+    console.log('two')
+});
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'baseb.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+    <h1 class="text-center py-3">About the Dev</h1>
+    <div>
+        <p>Hi, my name is Wallace Pannace, this app is derived from the codes I made in the first scientific initiation project I participated during my graduation in physics engineering at the Universiade de Integração Latino-Americana (UNILA), my first formal contact with programming was in the class 'computer programming in C', and soon after I started on the project "Computer Program for the Identification of Celestial Objects through the Analysis of Light Curves", in 2018, in which I was the oriented and the advisor was Professor Dr. Willian Zalewski, in this project we used the python language for the algorithms, we analyzed 36 systems with exoplanets identified from observations made by the NASA Kepler space telescope. considering the large amount of data, the processing of the algorithms was performed with the C3HPC cluster (UFPR) which contains 6 processing nodes, each with 4 sockets Intel Xeon E5-4627 v2 @ 3.30GHz (8 cores per socket) and 256GB RAM.</p>
+        <p> This project, I had the opportunity to participate in 2 other projects, 'AUTOMATIC IDENTIFICATION OF EXONS AND INTRONS REGIONS IN DNA SEQUENCES' in 2019 and 'APPLICATION OF MACHINE LEARNING TECHNIQUES FOR THE IDENTIFICATION OF PATTERNS IN DNA SEQUENCES' in 2020, during this period I was also twice a monitor of the class 'programming in python' offered at UNILA. </p>
+        <p>I'm currently free for opportunities in the freelance field or internship opportunities while I finish my graduation.</p>
+    </div>
+    <div class="text-center">
+        <a href="#"><img src="{% static  'perfil.PNG' %}" alt="" class="transform1 m-4" height="200" width="200"></a>
+    </div>
+    <h1 class="text-center">About the Application</h1>
+    <div>
+        <p>As mentioned, this clustering app is a piece of the algorithm made in the project 'Computer Program for the Identification of Celestial Objects through the Analysis of Light Curves', here I would like to present a bit of the project.</p>
+        <h3>Resume</h3>
+        <p>Variable stars are one of the main sources of information for astronomy, the study of the variation of brightness given in light curves, among other data, can provide information about their system, like if they have exoplanets. In this work, we analyzed 36 systems with exoplanets identified from observations made by the NASA Kepler space telescope. In this analysis we look for patterns in the brightness variation that are repeated in these systems, which may be related to the existence of exoplanets. The patterns sought are morphological patterns present in the light curves of each system, the data are analyzed in time series forms, using techniques to find motifs, enabling temporal analysis of the phenomenon.</p>
+        <h3>Conclusion</h3>
+        <img src="{% static  'project-results.PNG' %}" alt="" class="img-fluid m-3"  width="350" height="600" style="float: left;">
+        <div style="height: auto !important; min-height: 520px;">
+            <p>Using time series techniques, we implemented a computer program with which we extract patterns from light curves. We obtained good results in separating these patterns, considering the measured quality of the grouping performed. Based on this grouping, strategies that use machine learning in combination with algorithms that count how many times a subsequence occurs in a period of time can be used to classify light curves, among others.</p>
+            <p>These concepts also apply to other situations with morphological comparisons and/or time series, so the computational implementation performed can be used to search for patterns in other databases.</p>
+        </div>
+        
+    </div>
+    
+    <div class="text-center pb-3">
+        <p>If you want to see/clone the repository of the project on github, acess the link below:</p>
+        <a href="#"><img src="{% static  'gitlogo.PNG' %}" height="50" width="50" alt=""> Project Repository</a>
+        <p>If you are interested to see/clone this site repository, it is part of my portifolio project, that can be accessed by the link below:</p>
+        <a href="#"><img src="{% static  'gitlogo.PNG' %}" height="50" width="50" alt="">Cluster-Morph django project Repository</a>
+        
+    </div>
+</div>
+
+
+{% endblock %}
