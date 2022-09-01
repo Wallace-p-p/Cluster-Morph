@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-from biosppy.signals import tools
+from biosppy.signals.tools import normalize , distance_profile
 import pickle
 import os
 import shutil
@@ -17,7 +17,7 @@ def clusterthis(data, title):
     title = title
     database = data        #list of arrays, each array being a time series
     metric2 = 'euclidean'   #'euclidean' or 'pearson', the metric used to build the matrix of similarity between the selected subsequences, inside distance profile
-    H= tools.normalize(signal=database, ddof=1)
+    H= normalize(signal=database, ddof=1)
     database = H[0]
 
     #Clustering
@@ -33,17 +33,17 @@ def clusterthis(data, title):
     for i in range(len(LM)):
         for j in range(i+1,len(LM)):
             if(len(LM[i])<=len(LM[j])/2):                                                      #here we compare different size curves by sliding the shorter one into the bigest and saving the euclidean distance values
-                eucli = tools.distance_profile(query=LM[i], signal=LM[j], metric=metric2)
+                eucli = distance_profile(query=LM[i], signal=LM[j], metric=metric2)
                 eucli=eucli[0]
             elif(len(LM[i])/2>=len(LM[j])):
-                eucli = tools.distance_profile(query=LM[j], signal=LM[i], metric=metric2)
+                eucli = distance_profile(query=LM[j], signal=LM[i], metric=metric2)
                 eucli=eucli[0]
             else:                                                                              #the tool used can only calculate the euclidean distance if the bigger curve has at least duble the size, so when that is not the case, the biggest one is concatenated with itself and only the values that are from the originals ones are considered
 
                 if(len(LM[i])>=len(LM[j])):
                     o=[]
                     o= np.concatenate((LM[i], LM[i]), axis=0)
-                    eucli = tools.distance_profile(query=LM[j], signal=o, metric=metric2)
+                    eucli = distance_profile(query=LM[j], signal=o, metric=metric2)
                     eucli= eucli[0]
                     a=[]
                     for b in range(len(LM[i])-len(LM[j])+1):
@@ -52,7 +52,7 @@ def clusterthis(data, title):
                 elif(len(LM[i])<len(LM[j])):
                     o=[]
                     o= np.concatenate((LM[j], LM[j]), axis=0)
-                    eucli = tools.distance_profile(query=LM[i], signal=o, metric=metric2)
+                    eucli = distance_profile(query=LM[i], signal=o, metric=metric2)
                     eucli= eucli[0]
                     a=[]
                     for b in range(len(LM[j])-len(LM[i])+1):
