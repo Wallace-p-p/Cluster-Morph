@@ -1,4 +1,5 @@
 django-extensions
+django-crispy-forms
 libsass
 django-compressor
 django-sass-processor
