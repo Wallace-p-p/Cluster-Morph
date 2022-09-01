@@ -154,6 +154,8 @@ SOCIAL_AUTH_GITHUB_SECRET = '5e80421c046ee2f30be139fab572e181eff9830f'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '950550756436-0dud295jt2bnj317t6lauch6aqef2u44.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+DISABLE_COLLECTSTATIC=1
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
