@@ -24,17 +24,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ih@2jfucr)_*xgb@eomu(h+uld11yrispv83(v1&0iu0%3v^o%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    'cluster-morph.herokuapp.com',
-    '127.0.0.1',
-]
+ALLOWED_HOSTS = ['*', 'cluster-morph.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     'coreapp.apps.CoreappConfig',
     'django.contrib.admin',
     'django.contrib.auth',

@@ -12,22 +12,17 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  /* needed for container min-height */
 }
 
 div#container {
   background-color: #fffdfaf7;
   height: auto !important;
-  /* real browsers */
   min-height: 80%;
-  /* real browsers */
 }
 
 div#containerwidth {
   width: auto !important;
-  /* real browsers */
   max-width: 800px;
-  /* real browsers */
 }
 
 .transform1 {

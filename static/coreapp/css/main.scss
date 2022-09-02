@@ -17,16 +17,16 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%; /* needed for container min-height */
+    height: 100%; 
 }
 div#container {
     background-color: #fffdfaf7;
-    height: auto !important; /* real browsers */
-    min-height: 80%; /* real browsers */
+    height: auto !important; 
+    min-height: 80%; 
 }
 div#containerwidth {
-    width: auto !important; /* real browsers */
-    max-width: 800px; /* real browsers */
+    width: auto !important; 
+    max-width: 800px; 
 }
 
 
