@@ -154,7 +154,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '950550756436-0dud295jt2bnj317t6lauch6aqef2u44.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 
-# Default primary key field type
+# Default primary key field type algo
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
