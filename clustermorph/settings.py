@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ih@2jfucr)_*xgb@eomu(h+uld11yrispv83(v1&0iu0%3v^o%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'cluster-morph.herokuapp.com',
@@ -155,7 +155,7 @@ SOCIAL_AUTH_GITHUB_SECRET = '5e80421c046ee2f30be139fab572e181eff9830f'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '950550756436-0dud295jt2bnj317t6lauch6aqef2u44.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
-DISABLE_COLLECTSTATIC=1
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
