@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    #'django.contrib.staticfiles',
 
     'django_extensions',
     'sass_processor',
@@ -160,7 +160,7 @@ STATICFILES_FINDERS = [
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-
+DISABLE_COLLECTSTATIC=1
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
