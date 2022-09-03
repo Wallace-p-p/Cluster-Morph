@@ -160,7 +160,6 @@ STATICFILES_FINDERS = [
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-DISABLE_COLLECTSTATIC=1
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
