@@ -4,7 +4,7 @@ body {
   text-justify: auto;
   font-family: monospace;
   height: 100%;
-  background-image: url("../../background.PNG");
+  background-image: url("../../background.png");
 }
 
 html,
