@@ -79,7 +79,7 @@
             pickle.dump(a, fp)
     </p>
     <p>
-        So we can upload the .txt file, from this the app will normalize each curve and based on the euclidean distance and a parameter (radius) make the clusters, the app will use the values 0.1, 1.1, 2.1, 3.1 and 4.1, see on <a href="#">Git hub</a> for more details. As a result, .txt files readable with pickle.load will be created, the representants file contains the cuves that better represents each group, the groups file contais the formed groups for each radius, and the info file contains a list with 2 arrays, one with the radius and the other with the quality measure of the cluster process for the respective radius.
+        So we can upload the .txt file, from this the app will normalize each curve and based on the euclidean distance and a parameter (radius) make the clusters, the app will use the values 0.1, 1.1, 2.1, 3.1 and 4.1, see on <a href="https://github.com/Wallace-p-p/Motifs-identification-on-light-curves" target="_blank">Git hub</a> for more details. As a result, .txt files readable with pickle.load will be created, the representants file contains the cuves that better represents each group, the groups file contais the formed groups for each radius, and the info file contains a list with 2 arrays, one with the radius and the other with the quality measure of the cluster process for the respective radius.
     </p>
     <p>
         The results for the cluster of curves above will be, first the info file, where the closer the quality measure is to 1 better the cluster (relations of the euclidean distance inside each group and distance between groups):
