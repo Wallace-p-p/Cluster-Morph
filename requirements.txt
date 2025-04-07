@@ -1,6 +1,7 @@
 django-extensions
 django-crispy-forms
 libsass
+matplotlib
 django-compressor
 django-sass-processor
 biosppy == 1.0.0
