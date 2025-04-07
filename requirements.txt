@@ -3,7 +3,7 @@ django-crispy-forms
 libsass
 django-compressor
 django-sass-processor
-biosppy
+biosppy == 1.0.0
 social-auth-app-django
 django>=4.0,<5.0
 dj-database-url>=1.0,<2.0

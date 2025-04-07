@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('secret2')
 
 # SECURITY WARNING: don't run with debug turned on in production!.
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 ADMINS = [('Wallace', 'wallacepncp@gmail.com')]
